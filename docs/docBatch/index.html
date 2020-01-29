@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Batch · Kevin Grondin</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="_Mettre les codes dans un fichier .txt et renomer en .bat_"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Batch · Kevin Grondin"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kevingrondin.github.io/me/"/><meta property="og:description" content="_Mettre les codes dans un fichier .txt et renomer en .bat_"/><meta property="og:image" content="https://kevingrondin.github.io/me/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kevingrondin.github.io/me/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/me/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kevingrondin.github.io/me/blog/atom.xml" title="Kevin Grondin Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kevingrondin.github.io/me/blog/feed.xml" title="Kevin Grondin Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/me/js/scrollSpy.js"></script><link rel="stylesheet" href="/me/css/main.css"/><script src="/me/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/me/"><img class="logo" src="/me/img/favicon.ico" alt="Kevin Grondin"/><h2 class="headerTitleWithLogo">Kevin Grondin</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/me/docs/docBatch" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/me/docs/docGit" target="_self">Docs</a></li><li class=""><a href="/me/docs/doc4" target="_self">API</a></li><li class=""><a href="/me/help" target="_self">Help</a></li><li class=""><a href="/me/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Script</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Script</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/me/docs/docBatch">Mes .bat</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">CLI</h3><ul class=""><li class="navListItem"><a class="navItem" href="/me/docs/docGit">Quelque ligne avec GIT</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Second Category</h3><ul class=""><li class="navListItem"><a class="navItem" href="/me/docs/doc3">This is document number 3</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Batch</h1></header><article><div><span><p><em>Mettre les codes dans un fichier .txt et renomer en .bat</em></p>
+<h3><a class="anchor" aria-hidden="true" id="remarque"></a><a href="#remarque" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remarque</h3>
+<p><code>net use /delete</code> je ne conceil pas l'utilisation de l'argument /delete, car windows gére mal les connexions et les deconnexion répétitive</p>
+<h2><a class="anchor" aria-hidden="true" id="script-batch"></a><a href="#script-batch" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Script Batch</h2>
+<ol>
+<li><a href="#drag-and-drop">Drag And Drop</a> Comme son nom l'indique me permet de faire du drag and drop</li>
+<li><a href="#qui-est-sur-le-serveur">Qui est sur le serveur</a> Savoir qui est connecter sur un serveur depuis un terminal</li>
+<li><a href="#scanne">Scanne</a> Scanne tout les fichiers de plusieur repertoire</li>
+<li><a href="#network">Network</a> Des outils pour le réseaux</li>
+<li><a href="#php">PHP</a> Exécuter des scripts php</li>
+<li><a href="#trigger">Trigger</a> Programme à mettre en tache planifiée</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="drag-and-drop"></a><a href="#drag-and-drop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Drag And Drop</h2>
+<p><a name="drag-and-drop--simple"></a><a name="1.1"></a></p>
+<ul>
+<li><a href="#drag-and-drop--simple">1.1</a> <strong>Copie Simple</strong>: Copie tout les fichiers déposé sur le .bat</li>
+</ul>
+<pre><code class="hljs css language-batch">@<span class="hljs-built_in">echo</span> off
+
+<span class="hljs-built_in">set</span> _DESTINATION = "\\Desitanation\Reseaux\Dossier"
+
+<span class="hljs-keyword">for</span> <span class="hljs-variable">%%F</span> <span class="hljs-keyword">in</span> (%*) <span class="hljs-keyword">do</span> <span class="hljs-built_in">copy</span> <span class="hljs-variable">%%F</span> <span class="hljs-variable">%_DESTINATION%</span>
+</code></pre>
+<p><a name="drag-and-drop--connexion"></a><a name="1.2"></a></p>
+<ul>
+<li><a href="#drag-and-drop--connexion">1.2</a> <strong>Copie Avec Connexion</strong>: Copie tout les fichiers deposés sur le .bat, à l'aide d'un <code>MOTDEPASSE</code> et <code>NOMUTILISATEUR</code></li>
+</ul>
+<pre><code class="hljs css language-batch">@<span class="hljs-built_in">echo</span> off
+
+<span class="hljs-built_in">set</span> _SERVEUR        = \\SERVEUR
+<span class="hljs-built_in">set</span> _MOTDEPASS      = MOTDEPASSE
+<span class="hljs-built_in">set</span> _NOMUTILISATEUR = NOMUTILISATEUR
+<span class="hljs-built_in">set</span> _DESTINATION    = "\\DESTINATION\RESEAUX\DOSSIER\"
+
+<span class="hljs-built_in">net</span> use <span class="hljs-variable">%_SERVEUR%</span> /delete /yes
+
+<span class="hljs-built_in">net</span> use <span class="hljs-variable">%_SERVEUR%</span> <span class="hljs-variable">%_MOTDEPASSE%</span> /USER:<span class="hljs-variable">%_NOMUTILISATEUR%</span>
+<span class="hljs-keyword">for</span> <span class="hljs-variable">%%F</span> <span class="hljs-keyword">in</span> (%*) <span class="hljs-keyword">do</span> <span class="hljs-built_in">copy</span> <span class="hljs-variable">%%F</span> <span class="hljs-variable">%_DESTINATION%</span>
+</code></pre>
+<p><a name="drag-and-drop--deplace"></a><a name="1.3"></a></p>
+<ul>
+<li><a href="#drag-and-drop--deplace">1.3</a> <strong>Deplace Fichier</strong>: Deplace les fichiers deposés sur le .bat, à l'aide d'un <code>MOTDEPASSE</code> et <code>NOMUTILISATEUR</code></li>
+</ul>
+<pre><code class="hljs css language-batch">@<span class="hljs-built_in">echo</span> off
+
+<span class="hljs-built_in">set</span> <span class="hljs-variable">_SERVEUR</span>         = \\SERVEUR
+<span class="hljs-built_in">set</span> <span class="hljs-variable">_MOTDEPASSE</span>      = MOTDEPASSE
+<span class="hljs-built_in">set</span> <span class="hljs-variable">_NOMUTILISATEUR</span>  = NOMUTILISATEUR
+<span class="hljs-built_in">set</span> <span class="hljs-variable">_SOURCE</span>          = \\SOURCE\fichier*
+<span class="hljs-built_in">set</span> <span class="hljs-variable">_DESTINATION</span>     = C:\DESTINATION\fichier*
+
+net use %<span class="hljs-variable">_SERVEUR</span>% %<span class="hljs-variable">_MOTDEPASSE</span>% /USER:%<span class="hljs-variable">_NOMUTILISATEUR</span>%
+xcopy %<span class="hljs-variable">_SOURCE</span>% %<span class="hljs-variable">_DESTINATION</span>%
+del %<span class="hljs-variable">_SOURCE</span>%
+</code></pre>
+<p><strong><a href="#script-batch">⬆ Menu</a></strong></p>
+<h2><a class="anchor" aria-hidden="true" id="qui-est-sur-le-serveur"></a><a href="#qui-est-sur-le-serveur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Qui est sur le serveur</h2>
+<pre><code class="hljs css language-batch">@echo <span class="hljs-literal">off</span>
+
+query sessions /serveur:name-<span class="hljs-keyword">of</span>-serveur
+</code></pre>
+<p><strong><a href="#script-batch">⬆ Menu</a></strong></p>
+<h2><a class="anchor" aria-hidden="true" id="scanne"></a><a href="#scanne" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scanne</h2>
+<p><a name="scanne--dir"></a><a name="2.1"></a></p>
+<ul>
+<li><a href="#scanne--dir">2.1</a> <strong>Scanne Dir</strong>: scanne tout les fichiers d'un ou plusieurs repertoire</li>
+</ul>
+<pre><code class="hljs css language-batch">@echo off
+
+SET _MP = MOTDEPASSE
+SET _USER = <span class="hljs-symbol">\L</span>OGIN
+SET _DEST = D:<span class="hljs-symbol">\M</span>on<span class="hljs-symbol">\R</span>EPERTOIRE\
+
+for <span class="hljs-variable">%%</span>M in (Rep01 Rep08 Rep10) do (
+   net use <span class="hljs-symbol">\\</span>SRV_<span class="hljs-variable">%%</span>M<span class="hljs-symbol">\ </span><span class="hljs-variable">%_MP%</span> /USER:<span class="hljs-variable">%_USER%</span>
+   for <span class="hljs-variable">%%</span>F in ("<span class="hljs-symbol">\\</span>SRV_<span class="hljs-variable">%%</span>M<span class="hljs-symbol">\R</span>epetoire<span class="hljs-symbol">\s</span>ource<span class="hljs-symbol">\*</span>") do (
+      echo <span class="hljs-variable">%%</span>F &gt;&gt; <span class="hljs-variable">%DEST%</span>[ScanneDir]DU<span class="hljs-variable">%%</span>M.txt
+   )
+)
+</code></pre>
+<p><strong><a href="#script-batch">⬆ Menu</a></strong></p>
+<h2><a class="anchor" aria-hidden="true" id="network"></a><a href="#network" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Network</h2>
+<p><a name="network--mp"></a><a name="3.1"></a></p>
+<ul>
+<li><a href="#network--mp">3.1</a> <strong>Retrouver Mot de Passe Wifi</strong>: Retrouve les mots de passe déja entrer sur un wifi</li>
+</ul>
+<pre><code class="hljs css language-batch">@echo off
+netsh wlan <span class="hljs-keyword">show</span> <span class="hljs-keyword">profiles</span> <span class="hljs-keyword">key</span>=<span class="hljs-keyword">clear</span>
+<span class="hljs-keyword">Set</span> /p username=Choisir un nom wifi parmi la liste ci-dessus:
+netsh wlan <span class="hljs-keyword">show</span> <span class="hljs-keyword">profiles</span> <span class="hljs-keyword">name</span>=%username% <span class="hljs-keyword">key</span>=<span class="hljs-keyword">clear</span>
+echo le code de la wifi se trouve juste au dessus
+pause
+</code></pre>
+<p><a name="network--rdp"></a><a name="3.2"></a></p>
+<ul>
+<li><a href="#network--mp">3.2</a> <strong>Rendre la main apres une connexion RDP</strong>: Une fois la prise de controle à distance, il faut rendre la main à la machine</li>
+</ul>
+<pre><code class="hljs css language-batch">tscon <span class="hljs-number">0</span> /dest:console
+</code></pre>
+<p><strong><a href="#script-batch">⬆ Menu</a></strong></p>
+<h2><a class="anchor" aria-hidden="true" id="php"></a><a href="#php" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PHP</h2>
+<p><a name="php--execute"></a><a name="4.1"></a></p>
+<ul>
+<li><a href="#php--execute">3.1</a> <strong>Exécuter un script PHP</strong>: est souvent utilisée dans des crontab</li>
+</ul>
+<pre><code class="hljs css language-batch">C:
+<span class="hljs-keyword">cd</span> C:\
+<span class="hljs-keyword">cd</span> wamp
+<span class="hljs-keyword">cd</span> www
+<span class="hljs-keyword">cd</span> repertoire
+<span class="hljs-keyword">cd</span> <span class="hljs-keyword">batch</span>
+
+start <span class="hljs-string">/B</span> <span class="hljs-string">/W</span> c:\wamp\php\php.exe page.php &gt;&gt; LOG.txt
+</code></pre>
+<pre><code class="hljs css language-php"><span class="hljs-meta">&lt;?php</span>
+$fp      = fopen(<span class="hljs-string">"fichier.txt"</span>, <span class="hljs-string">"r"</span>);
+$donnee  = fgets($fp,<span class="hljs-number">10</span>);
+fclose($fp);
+copy(<span class="hljs-string">'fichier.txt'</span>,<span class="hljs-string">'\\\\destinationreseau\dossier\fichier.txt'</span>);
+unlink(<span class="hljs-string">'fichier.txt'</span>)
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="trigger"></a><a href="#trigger" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TRIGGER</h2>
+<p><a name="trigger--simple"></a><a name="4.1"></a></p>
+<ul>
+<li><a href="#trigger--cron">4.1</a> <strong>Trigger</strong>:en tache planifier va scruter un dossier tout les X temmps</li>
+</ul>
+<pre><code class="hljs css language-batch">@<span class="hljs-built_in">echo</span> off
+
+<span class="hljs-built_in">setlocal</span> enableextensions
+<span class="hljs-built_in">setlocal</span> enabledelayedexpansion
+<span class="hljs-comment">
+REM seul les variable TEMPORISATION TRIGGER DOSSIER LISTE MAIL peuvent t'être modifiée</span>
+<span class="hljs-comment">
+REM Temportisation c'est le temps entre les deux fois ou il inspecte le dossier</span>
+<span class="hljs-built_in">set</span> TEMPORISATION=<span class="hljs-number">6</span>
+<span class="hljs-comment">REM Le modéle de fichier qu'on doit surveiller avec son chemin complet</span>
+<span class="hljs-built_in">set</span> TRIGGER="\\SERVEUR\DOSSIER\fic*"
+<span class="hljs-comment">REM Le dossier du controle</span>
+<span class="hljs-built_in">set</span> DOSSIER="C:\DOSSIER"
+<span class="hljs-comment">REM Le resultat des fichiers trouvé dans le dossier</span>
+<span class="hljs-built_in">set</span> LISTE="C:\DOSSIER\liste.txt"
+<span class="hljs-comment">REM MAIL</span>
+<span class="hljs-built_in">set</span> MAIL=destinataire@email.com -f emetteur@email.com
+<span class="hljs-comment">
+REM Auncune modification doit être aporté aprés cette ligne</span>
+
+<span class="hljs-built_in">dir</span> /B <span class="hljs-variable">%TRIGGER%</span> &gt; <span class="hljs-variable">%LISTE%</span>
+<span class="hljs-built_in">cd</span> <span class="hljs-variable">%DOSSIER%</span>
+<span class="hljs-keyword">FOR</span> /R <span class="hljs-variable">%DOSSIER%</span> <span class="hljs-variable">%%i</span> <span class="hljs-keyword">in</span> (liste.txt) <span class="hljs-keyword">do</span> (
+<span class="hljs-comment">    rem On teste si le fichier est vide</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-variable">%%~</span>zi <span class="hljs-keyword">GTR</span> <span class="hljs-number">0</span> (
+        TIMEOUT <span class="hljs-variable">%TEMPORISATION%</span>
+        <span class="hljs-built_in">dir</span> /B <span class="hljs-variable">%TRIGGER%</span> &gt; <span class="hljs-variable">%LISTE%</span>
+        <span class="hljs-keyword">FOR</span> /R <span class="hljs-variable">%DOSSIER%</span> <span class="hljs-variable">%%i</span> <span class="hljs-keyword">in</span> (liste.txt) <span class="hljs-keyword">do</span> (
+            <span class="hljs-keyword">if</span> <span class="hljs-variable">%%~</span>zi <span class="hljs-keyword">GTR</span> <span class="hljs-number">0</span> (
+<span class="hljs-function">                C:\<span class="hljs-title">DOSSIER</span>\<span class="hljs-title">prog</span>\<span class="hljs-title">blat</span>\<span class="hljs-title">blat.exe</span> <span class="hljs-title">body.txt</span> -<span class="hljs-title">to</span> %<span class="hljs-title">MAIL</span>% -<span class="hljs-title">s</span> "<span class="hljs-title">OBJET</span> <span class="hljs-title">CONTROLE</span>" -<span class="hljs-title">server</span> <span class="hljs-title">IPSERVEUR</span>
+            )
+        )
+    )
+)
+</span></code></pre>
+<p><a name="trigger--2"></a><a name="4.1"></a></p>
+<ul>
+<li><a href="#trigger--cron--2">4.1</a> <strong>Trigger</strong>: Un peu plus compliqué</li>
+</ul>
+<pre><code class="hljs css language-batch">@<span class="hljs-built_in">echo</span> off
+
+<span class="hljs-built_in">setlocal</span> enableextensions
+<span class="hljs-built_in">setlocal</span> enabledelayedexpansion
+<span class="hljs-comment">
+REM seul les variable RESULTAT DIR ENTETE FILESQL CONSTANTE DIRCONST peuvent t'être modifiée</span>
+<span class="hljs-comment">
+REM L'endroit ou ce trouve notre projet</span>
+<span class="hljs-built_in">set</span> <span class="hljs-built_in">DIR</span>=C:\DOSSIER\
+<span class="hljs-comment">REM l'entete de notre fichier excel</span>
+<span class="hljs-built_in">set</span> ENTETE=C:\DOSSIER\entete.txt
+<span class="hljs-comment">REM Mon fichier sql</span>
+<span class="hljs-built_in">set</span> FILESQL=C:\DOSSIER\requete.sql
+<span class="hljs-comment">REM MAIL</span>
+<span class="hljs-built_in">set</span> MAIL=destinataire@leader-sys.com -f expediteur@leader-sys.com
+<span class="hljs-comment">REM Liste de constante à parcourire</span>
+<span class="hljs-built_in">set</span> CONSTANTE="C:\API\liste_magasins.txt"
+<span class="hljs-comment">
+
+REM Auncune modification doit être aporté aprés cette ligne</span>
+
+<span class="hljs-built_in">cd</span> <span class="hljs-variable">%DIR%</span>
+
+<span class="hljs-keyword">FOR</span> /F "tokens=<span class="hljs-number">1</span>" <span class="hljs-variable">%%j</span> <span class="hljs-keyword">in</span>(<span class="hljs-variable">%CONSTANTE%</span>) <span class="hljs-keyword">do</span> (
+    <span class="hljs-keyword">if</span> "<span class="hljs-variable">%%j</span>"=="" <span class="hljs-keyword">GOTO</span> <span class="hljs-keyword">EXIT</span>
+
+    sqlplus -s <span class="hljs-variable">%%j</span>/mp@hote @<span class="hljs-variable">%FILESQL%</span> <span class="hljs-variable">%DIR%</span>res_<span class="hljs-variable">%%j</span>.txt
+
+    <span class="hljs-keyword">FOR</span> /R "<span class="hljs-variable">%DIR%</span>" <span class="hljs-variable">%%i</span> <span class="hljs-keyword">in</span> (res_<span class="hljs-variable">%%j</span>.txt) <span class="hljs-keyword">do</span> (
+        <span class="hljs-keyword">if</span> <span class="hljs-variable">%%~</span>zi <span class="hljs-keyword">GTR</span> <span class="hljs-number">0</span> (
+            <span class="hljs-built_in">TYPE</span> <span class="hljs-variable">%ENTETE%</span> &gt; res_<span class="hljs-variable">%%j</span>.csv
+            <span class="hljs-built_in">TYPE</span> res_<span class="hljs-variable">%%j</span>.txt &gt;&gt; res_<span class="hljs-variable">%%j</span>.csv
+            <span class="hljs-keyword">if</span> "<span class="hljs-variable">%%j</span>"=="CONST1" blat.exe body.txt -to <span class="hljs-variable">%MAIL%</span> -s "Objet du mail <span class="hljs-variable">%%j</span>" -attach res_<span class="hljs-variable">%%j</span>.csv -server <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">0</span>.<span class="hljs-number">172</span>
+        )
+    )
+)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="projet-send-csv-bymail"></a><a href="#projet-send-csv-bymail" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PROJET SEND-CSV-BYMAIL</h2>
+<p><a name="execute sql - get data - send csv"></a><a name="4.1"></a></p>
+<ul>
+<li><a href="#execute--sql--getdata-send">3.1</a> <strong>Mini projet</strong></li>
+</ul>
+<pre><code class="hljs css language-batch">@<span class="hljs-built_in">echo</span> off
+
+<span class="hljs-built_in">setlocal</span> enableextensions
+<span class="hljs-built_in">setlocal</span> enabledelayedexpansion
+<span class="hljs-comment">
+REM seul les variable RESULTAT DIR ENTETE FILESQL CONSTANTE DIRCONST peuvent t'être modifiée</span>
+<span class="hljs-comment">REM mon entête du csv</span>
+<span class="hljs-built_in">set</span> ENTET=C:\DOSSIER\_entete.txt
+<span class="hljs-comment">REM le corp du mail</span>
+<span class="hljs-built_in">set</span> BOD=C:\DOSSIER\_body.txt
+<span class="hljs-comment">REM mon fichier resultat</span>
+<span class="hljs-built_in">set</span> REP=C:\DOSSIER
+<span class="hljs-comment">REM mot de passe BDD</span>
+<span class="hljs-built_in">set</span> MP=motdepasse
+<span class="hljs-comment">REM hote BDD</span>
+<span class="hljs-built_in">set</span> HOTE=hote
+<span class="hljs-comment">REM Destinataire</span>
+<span class="hljs-built_in">set</span> DEST=destinataire@mail.com
+
+<span class="hljs-built_in">cd</span> <span class="hljs-variable">%REP%</span>
+<span class="hljs-comment">
+rem on recupère tout nos elements pour boucler notre projet</span>
+<span class="hljs-keyword">FOR</span> <span class="hljs-variable">%%j</span> <span class="hljs-keyword">IN</span> (ENTITA ENTITB) <span class="hljs-keyword">DO</span> (
+    <span class="hljs-keyword">IF</span> "<span class="hljs-variable">%%j</span>"=="" <span class="hljs-keyword">GOTO</span> <span class="hljs-keyword">EXIT</span>
+    sqlplus -s <span class="hljs-variable">%%j</span>/<span class="hljs-variable">%MP%</span>@<span class="hljs-variable">%HOTE%</span> @<span class="hljs-variable">%REP%</span>\res_<span class="hljs-variable">%%j</span>.txt
+
+    <span class="hljs-keyword">FOR</span> /R "<span class="hljs-variable">%REP%</span>" <span class="hljs-variable">%%i</span> <span class="hljs-keyword">IN</span> (res_<span class="hljs-variable">%%j</span>.txt) <span class="hljs-keyword">DO</span> (
+        <span class="hljs-keyword">IF</span> <span class="hljs-variable">%%~</span>zi <span class="hljs-keyword">GTR</span> <span class="hljs-number">0</span> (
+            <span class="hljs-built_in">TYPE</span> <span class="hljs-variable">%ENTET%</span> &gt; <span class="hljs-variable">%REP%</span>\res_<span class="hljs-variable">%%j</span>.csv
+            <span class="hljs-built_in">TYPE</span> <span class="hljs-variable">%REP%</span>\res_<span class="hljs-variable">%%j</span>.txt &gt;&gt; <span class="hljs-variable">%REP%</span>\res_<span class="hljs-variable">%%j</span>.csv
+<span class="hljs-comment">            rem envoyer un mail à chaque entitee</span>
+            <span class="hljs-keyword">if</span> "<span class="hljs-variable">%%j</span>"=="ENTITA" <span class="hljs-variable">%REP%</span>\blat.exe <span class="hljs-variable">%BOD%</span> -to <span class="hljs-variable">%DEST%</span> -f crtl@control.com -s "Controle ENTITA" -attach <span class="hljs-variable">%REP%</span>\res_<span class="hljs-variable">%%j</span>.csv -server <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">0</span>.<span class="hljs-number">172</span>
+        )
+    )
+)
+</code></pre>
+<p><strong><a href="#script-batch">⬆ Menu</a></strong></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/me/docs/docGit"><span>Quelque ligne avec GIT</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#script-batch">Script Batch</a></li><li><a href="#drag-and-drop">Drag And Drop</a></li><li><a href="#qui-est-sur-le-serveur">Qui est sur le serveur</a></li><li><a href="#scanne">Scanne</a></li><li><a href="#network">Network</a></li><li><a href="#php">PHP</a></li><li><a href="#trigger">TRIGGER</a></li><li><a href="#projet-send-csv-bymail">PROJET SEND-CSV-BYMAIL</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/me/" class="nav-home"><img src="/me/img/favicon.ico" alt="Kevin Grondin" width="66" height="58"/></a><div><h5>Docs</h5><a href="/me/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/me/docs/en/doc2.html">Guides (or other categories)</a><a href="/me/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/me/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/me/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/me/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Your Name or Your Company Name</section></footer></div></body></html>

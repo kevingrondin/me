@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Supervision Linux · Kevin Grondin</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Monitoring"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Supervision Linux · Kevin Grondin"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kevingrondin.github.io/me/"/><meta property="og:description" content="# Monitoring"/><meta property="og:image" content="https://kevingrondin.github.io/me/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kevingrondin.github.io/me/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/me/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/me/js/scrollSpy.js"></script><link rel="stylesheet" href="/me/css/main.css"/><script src="/me/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/me/"><img class="logo" src="/me/img/favicon.ico" alt="Kevin Grondin"/><h2 class="headerTitleWithLogo">Kevin Grondin</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/me/docs/docBatch" target="_self">Scripts</a></li><li class=""><a href="/me/docs/docLinuxInstallation" target="_self">Tuto</a></li><li class=""><a href="/me/docs/docDev" target="_self">Dev</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Supervision Linux</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="monitoring"></a><a href="#monitoring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Monitoring</h1>
+<blockquote>
+<p>Plusieurs outils et façon de faire</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="netdata"></a><a href="#netdata" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Netdata</h2>
+<blockquote>
+<p>Une communauté grandissante</p>
+</blockquote>
+<p>Installation</p>
+<pre><code class="hljs css language-Shell">bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh)
+</code></pre>
+<p>Interface web <a href="htt://127.0.0.1:19999">htt://127.0.0.1:19999</a></p>
+<pre><code class="hljs css language-Shell">bash &lt;(curl -Ss https://my-netdata.io/kickstart.sh)
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="espace-disque"></a><a href="#espace-disque" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Espace disque</h1>
+<h2><a class="anchor" aria-hidden="true" id="ncdu"></a><a href="#ncdu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ncdu</h2>
+<p>ce placer à la racine, l'argument -x permet de ignorer les média</p>
+<pre><code class="hljs css language-Shell">cd /
+sudo ncdu -x
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="fichier-temporaire"></a><a href="#fichier-temporaire" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fichier temporaire</h1>
+<h2><a class="anchor" aria-hidden="true" id="tmpreaper"></a><a href="#tmpreaper" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tmpreaper</h2>
+<p>Installer tmpreaper avec apt</p>
+<p>lors de l'installation avec apt, il faut commenter la ligne showing dans le fichier etc/tmpreaper</p>
+<h1><a class="anchor" aria-hidden="true" id="journal-et-log"></a><a href="#journal-et-log" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Journal et Log</h1>
+<h2><a class="anchor" aria-hidden="true" id="log-monitor"></a><a href="#log-monitor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>log monitor</h2>
+<pre><code class="hljs css language-SHELL">cd var/log
+
+ls -ltr
+ll | more
+</code></pre>
+<p>Voir les log de demarrage toujours dans <code>var/log</code></p>
+<pre><code class="hljs css language-SHELL">more boot.log
+</code></pre>
+<p>voir quand est-ce que boot.log a été modifié</p>
+<pre><code class="hljs css language-SHELL">ls -l boot.log
+</code></pre>
+<p>voir les log du matériel</p>
+<pre><code class="hljs css language-SHELL">dmesg
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="lnav"></a><a href="#lnav" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>lnav</h2>
+<p>Analyser les log avec lnav installation simple avec apt</p>
+<pre><code class="hljs css language-Shell">lnav /var/log/messages*
+
+journalctl | lnav
+
+journalctl -f | lnav
+
+journalctl -o short-iso | lnav
+
+journalctl -o json | lnav
+
+journalctl -a -o json | lnav
+
+journalctl -o json --output-fields=MESSAGE,PRIORITY,_PID,SYSLOG_IDENTIFIER,_SYSTEMD_UNIT | lnav
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="logrotate"></a><a href="#logrotate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>logrotate</h2>
+<blockquote>
+<p>Si on travail avec des outils qui générent des fichiers <em>log</em></p>
+</blockquote>
+<p><strong>logrotate</strong> est déja présent sur les distribution linux, il permet d'effecctuer des actions de rotations et de compression sur les logs</p>
+<p>Assurons-nous que cette ligne n'est pas commentez</p>
+<pre><code class="hljs css language-Shell">cat /etc/logrotate.conf | grep "include"
+</code></pre>
+<p>Voici un exemple</p>
+<pre><code class="hljs css language-Bash">/var/<span class="hljs-built_in">log</span>/mylogs/auth.log {
+     su &lt;user&gt; &lt;group&gt;
+     monthly
+     rotate 3
+     compress
+     missingok
+     create 644 &lt;user&gt; &lt;group&gt;
+}
+
+/var/<span class="hljs-built_in">log</span>/mylogs/errors.log {
+     su &lt;user&gt; &lt;group&gt;
+     monthly
+     rotate 3
+     compress
+     missingok
+     create 644 &lt;user&gt; &lt;group&gt;
+}
+</code></pre>
+<ol>
+<li><strong>monthly</strong> : la rotation se fait mensuellement</li>
+<li><strong>rotate 3</strong> : le nombre de fichiers qu’on souhaite conserver</li>
+<li><strong>compress</strong> : les anciens fichiers sont compressés</li>
+<li><strong>missingok</strong> : ne considère pas l’absence du fichier comme une erreur</li>
+<li><strong>create 644 root root</strong> : créer le fichier de log immédiatement après la rotation avec les droits adéquats</li>
+</ol>
+<p>Petite verification</p>
+<pre><code class="hljs css language-Shell">logrotate --force /etc/logrotate.d/mylogs
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="supprimer-ces-traces"></a><a href="#supprimer-ces-traces" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Supprimer ces traces</h1>
+<pre><code class="hljs css language-BATCH"><span class="hljs-built_in">history</span>
+</code></pre>
+<p>supprimer une ligne génante</p>
+<pre><code class="hljs css language-BATCH"><span class="hljs-built_in">history</span> -d numeroligne
+</code></pre>
+<p>Tout nettoyer</p>
+<pre><code class="hljs css language-BATCH"><span class="hljs-built_in">history</span> -c
+</code></pre>
+<p>Si je veux l'historique sans les ligne de commande ls -l</p>
+<pre><code class="hljs css language-BATCH"><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">HISTIGNORE</span>=<span class="hljs-string">'ls -l:pwd:history'</span>
+</code></pre>
+<p>tout l'historique sont sauvegardé ici</p>
+<p><code>/home/yourname/.bash_history</code></p>
+<p><em>ctrl+r</em> permet de faire une recherche dans les lignes de commande tapé</p>
+<h1><a class="anchor" aria-hidden="true" id="message"></a><a href="#message" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Message</h1>
+<p>Pour afficher un message il faudra l'écrire la dedans</p>
+<p><code>/etc/motd</code>
+<code>/etc/nologin</code></p>
+<h2><a class="anchor" aria-hidden="true" id="suppression-en-masse"></a><a href="#suppression-en-masse" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Suppression en masse</h2>
+<p>Il peux arriver qu'un dossier comporte tellement de fichier que vider le dossier deviens impossible meme avec un rm</p>
+<pre><code class="hljs css language-Shell">find . -name "*.toto" -exec rm {} \;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="creer-en-masse"></a><a href="#creer-en-masse" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creer en masse</h2>
+<p>Cette ligne de commande creer 9 fichiers</p>
+<pre><code class="hljs css language-Shell">touch abcd{1..9}-wyz
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="rechercher"></a><a href="#rechercher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rechercher</h1>
+<p>Rechercher une chaine de caractère dans tout les fichiers du repertoire courant</p>
+<pre><code class="hljs css language-Shell">grep -rnw './' -e 'machainearechercher'
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="process-and-jobs"></a><a href="#process-and-jobs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Process and Jobs</h1>
+<blockquote>
+<p>Crtl-z, jobs, bg, fg, nohup &amp;, ps, pkill, nice</p>
+</blockquote>
+<p>systemctl
+ps -aux
+top
+crontab -e pour creer un crontab
+crontab -l pour lister les crontab</p>
+<p>on peux definir plus facilement les cron dans /etc/</p>
+<p>ls -l | grep cron</p>
+<h1><a class="anchor" aria-hidden="true" id="mot-de-passe"></a><a href="#mot-de-passe" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mot de passe</h1>
+<pre><code class="hljs css language-Shell">passwd
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="commande-sed"></a><a href="#commande-sed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Commande sed</h1>
+<p>Remplacer tout les mots <code>ancien</code> par les mots <code>nouveau</code> du fichier <code>MonFichier</code></p>
+<pre><code class="hljs css language-Shell">sed 's/ancien/nouveau/g' MonFichier
+</code></pre>
+<p>Rajouter l'argument -i pour que cela soit actif</p>
+<pre><code class="hljs css language-Shell">sed -i 's/ancien/nouveau/g' MonFichier
+</code></pre>
+<p>Supprimer toutes les lignes dans le fichier contenant le mot <code>ancien</code> dans <code>MonFichier</code></p>
+<pre><code class="hljs css language-Shell">sed '/ancien/d' MonFichier
+</code></pre>
+<p>Supprimer toutes les lignes vide dans <code>MonFichier</code></p>
+<pre><code class="hljs css language-Shell">sed -i '/^$/d' MonFichier
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="tester-chiffrement-tslssl-starttls"></a><a href="#tester-chiffrement-tslssl-starttls" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tester chiffrement TSL/SSL (STARTTLS)</h1>
+<pre><code class="hljs css language-BATCH">git clone –depth <span class="hljs-number">1</span> http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/drwetter/testssl.<span class="hljs-keyword">sh</span>.git
+<span class="hljs-keyword">cd</span> testssl.<span class="hljs-keyword">sh</span>
+./testssl.<span class="hljs-keyword">sh</span> http<span class="hljs-variable">s:</span>//qwant.<span class="hljs-keyword">com</span>
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="detecter-le-traffic-malicieux"></a><a href="#detecter-le-traffic-malicieux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Detecter le traffic malicieux</h1>
+<p><a href="https://github.com/stamparm/maltrail">https://github.com/stamparm/maltrail</a></p>
+<h1><a class="anchor" aria-hidden="true" id="voir-quel-paquets-sont-installés"></a><a href="#voir-quel-paquets-sont-installés" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Voir quel paquets sont installés</h1>
+<pre><code class="hljs css language-SHELL">dpkg -l | grep &lt;paquet&gt;
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="gestion-utilisateurs"></a><a href="#gestion-utilisateurs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gestion utilisateurs</h1>
+<p>Creer l'utilisateur <code>toto</code> et l'ajouter au group sudo</p>
+<pre><code class="hljs css language-SHELL">useradd toto
+usermod -aG sudo toto
+</code></pre>
+<p>Supprimer un utilisateur</p>
+<pre><code class="hljs css language-SHELL">userdel -r toto
+</code></pre>
+<p>Chercher toto dans /etc/group</p>
+<pre><code class="hljs css language-SHELL">grep toto /etc/group
+</code></pre>
+<p>Creer un groupe TEST</p>
+<pre><code class="hljs css language-SHELL">groupadd TEST
+</code></pre>
+<p>Voir la liste de tout les groupes</p>
+<pre><code class="hljs css language-SHELL">cat /etc/group/
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="rsync"></a><a href="#rsync" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>rsync</h1>
+<p>Synchroniser deux repertoire sur un serveur local</p>
+<pre><code class="hljs css language-BATCH">rsync -zvr <span class="hljs-regexp">/var/</span>opt<span class="hljs-regexp">/installation/i</span>nventory <span class="hljs-regexp">/root/</span>temp
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="récupération-de-disque-dur"></a><a href="#récupération-de-disque-dur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Récupération de disque dur</h1>
+<p>Recupérer <a href="http://www.garloff.de/kurt/linux/ddrescue/">dd_rescue</a></p>
+<p>Décompressez, puis make pour créer le binaire</p>
+<p>Si le disque enfommagé est /dev/sdb1
+Si le disque libre est /dev/sdc1</p>
+<p>Information du disque</p>
+<pre><code class="hljs css language-BATCH"><span class="hljs-attribute">fdisk -l</span>
+</code></pre>
+<p>Se placer dans le repertoire dd_rescue</p>
+<pre><code class="hljs css language-BATCH">dd_rescue -l transfert_errors.log <span class="hljs-regexp">/dev/</span>sdb1 <span class="hljs-regexp">/dev/</span>sdc1
+</code></pre>
+<p>Le fichier log va être créé et qui va lister les blocs qu'il n'a pas plus traiter</p>
+<p>Choisisser un des lignes de commande ci-dessous selon votre système de fichiers</p>
+<pre><code class="hljs css language-BATCH"><span class="hljs-selector-tag">fsck</span><span class="hljs-selector-class">.ext2</span>
+<span class="hljs-selector-tag">fsck</span><span class="hljs-selector-class">.ext3</span>
+<span class="hljs-selector-tag">fsck</span><span class="hljs-selector-class">.ext4</span>
+<span class="hljs-selector-tag">fsck</span><span class="hljs-selector-class">.vfat</span>
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="autre"></a><a href="#autre" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Autre</h1>
+<pre><code class="hljs css language-Shell">df -h
+top
+dmesg
+iostat 1
+free
+cat /proc/cpuinfo
+cat /proc/meminfo
+</code></pre>
+<pre><code class="hljs css language-Shell">iftop
+</code></pre>
+<pre><code class="hljs css language-Shell">nethogs
+</code></pre>
+<pre><code class="hljs css language-Shell">iptraf-ng
+</code></pre>
+<pre><code class="hljs css language-Shell">apt install sysstat
+<span class="hljs-meta">
+#</span><span class="bash"> Regarder la crontab</span>
+cat /etc/cron.d/sysstat
+<span class="hljs-meta">
+#</span><span class="bash"> les fichiers générés</span>
+ls /var/log/sa
+<span class="hljs-meta">
+#</span><span class="bash"> CPU</span>
+sar -u
+<span class="hljs-meta">
+#</span><span class="bash"> Memoire</span>
+sar -r
+<span class="hljs-meta">
+#</span><span class="bash"> Swap</span>
+sar -W
+<span class="hljs-meta">
+#</span><span class="bash"> Etat des IO disque</span>
+sar -b
+<span class="hljs-meta">
+#</span><span class="bash"> Entree sortie</span>
+sar -d
+<span class="hljs-meta">
+#</span><span class="bash"> Une période</span>
+sadf -s 05:00:01 -e 06:00:01 -dT /var/log/sa/sa15 -- -A
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#netdata">Netdata</a></li><li><a href="#ncdu">ncdu</a></li><li><a href="#tmpreaper">tmpreaper</a></li><li><a href="#log-monitor">log monitor</a></li><li><a href="#lnav">lnav</a></li><li><a href="#logrotate">logrotate</a></li><li><a href="#suppression-en-masse">Suppression en masse</a></li><li><a href="#creer-en-masse">Creer en masse</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/me/" class="nav-home"><img src="/me/img/favicon.ico" alt="Kevin Grondin" width="66" height="58"/></a><div><h5>Docs</h5></div><div><h5>Community</h5></div><div><h5>More</h5></div></section></footer></div></body></html>

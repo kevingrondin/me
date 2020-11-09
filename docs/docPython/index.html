@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Python · Kevin Grondin</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Python"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Python · Kevin Grondin"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kevingrondin.github.io/me/"/><meta property="og:description" content="# Python"/><meta property="og:image" content="https://kevingrondin.github.io/me/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kevingrondin.github.io/me/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/me/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/me/js/scrollSpy.js"></script><link rel="stylesheet" href="/me/css/main.css"/><script src="/me/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/me/"><img class="logo" src="/me/img/favicon.ico" alt="Kevin Grondin"/><h2 class="headerTitleWithLogo">Kevin Grondin</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/me/docs/docBatch" target="_self">Scripts</a></li><li class=""><a href="/me/docs/docLinuxInstall" target="_self">Linux</a></li><li class="siteNavGroupActive"><a href="/me/docs/docDev" target="_self">Dev</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Codes</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Outils</h3><ul class=""><li class="navListItem"><a class="navItem" href="/me/docs/docDev">Environnement dev</a></li><li class="navListItem"><a class="navItem" href="/me/docs/docDevMongoDB">MongoDB</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Codes</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/me/docs/docPython">tuto python</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">DevOps</h3><ul class=""><li class="navListItem"><a class="navItem" href="/me/docs/docDevDevOps">Gitlab CI/CD</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Python</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="python"></a><a href="#python" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Python</h1>
+<blockquote>
+<p>langage haut niveau trés permissif, et facile à prendre en main</p>
+</blockquote>
+<p>Je part du principe que vous connaissez les bases de la programmation, donc pas de chapitre sur les boucles, les fonctions, etc ...</p>
+<h2><a class="anchor" aria-hidden="true" id="module"></a><a href="#module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Module</h2>
+<p><em>Definition</em></p>
+<pre><code class="hljs css language-Python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fact</span><span class="hljs-params">(n)</span>:</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> n == <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> n * fact(n<span class="hljs-number">-1</span>)
+
+<span class="hljs-keyword">if</span> (__name__ == <span class="hljs-string">'__main__'</span>):
+  <span class="hljs-keyword">import</span> sys
+  <span class="hljs-keyword">if</span> len(sys.argv) &gt; <span class="hljs-number">1</span>:
+    print(fact(int(sys.argv[<span class="hljs-number">1</span>])))
+</code></pre>
+<p><em>Appelle</em></p>
+<pre><code class="hljs css language-Python"><span class="hljs-keyword">from</span> fact <span class="hljs-keyword">import</span> fact
+fact(<span class="hljs-number">6</span>)
+<span class="hljs-comment"># 720</span>
+</code></pre>
+<p><em>Execution</em></p>
+<pre><code class="hljs css language-Shell">python3 fact.py 6
+<span class="hljs-meta">#</span><span class="bash"> 720</span>
+</code></pre>
+<p><em>Reload Module</em></p>
+<pre><code class="hljs css language-Python"><span class="hljs-keyword">import</span> importlib
+importlib.reload(myapp)
+</code></pre>
+<p><em>Print</em></p>
+<pre><code class="hljs css language-Python"><span class="hljs-keyword">import</span> sys
+sys.path.append(<span class="hljs-string">r'C:\Users\admin\myapp'</span>)
+<span class="hljs-comment"># Print all lib</span>
+sys.path
+<span class="hljs-comment"># Print path on one module</span>
+myapp.__file__
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="generateur"></a><a href="#generateur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generateur</h2>
+<pre><code class="hljs css language-Python">file_name = <span class="hljs-string">"myfile.csv"</span>
+lines = (line <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> open(file_name))
+
+<span class="hljs-comment"># Si vous voulez afficher c'est entre [] sinon garder les ()</span>
+<span class="hljs-comment"># [line for line in open(file_name)]</span>
+
+list_line = (s.rstrip().split(<span class="hljs-string">","</span>) <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> lines)
+cols = next(list_line)
+company_dicts = (dict(zip(cols, data)) <span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> list_line)
+funding = (
+  int(compagny_dict[<span class="hljs-string">"raisedAmt"</span>])
+  <span class="hljs-keyword">for</span> company_dict <span class="hljs-keyword">in</span> company_dicts
+  <span class="hljs-keyword">if</span> company_dict[<span class="hljs-string">"round"</span>] == <span class="hljs-string">"a"</span>
+)
+total_series_a = sum(funding)
+print(<span class="hljs-string">f"Total series A fundraising: $<span class="hljs-subst">{total_series_a}</span>"</span>)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="fichier"></a><a href="#fichier" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fichier</h2>
+<pre><code class="hljs css language-Python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> tempfile
+<span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+
+<span class="hljs-comment"># Ecrire un fichier</span>
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'test.txt'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> write_file:
+  write_file.write(<span class="hljs-string">"Original text"</span>)
+
+<span class="hljs-comment"># Lire un fichier</span>
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'test.txt'</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> read_file:
+  print(read_file.read())
+
+<span class="hljs-comment"># Rajouter une ligne</span>
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'test.txt'</span>, <span class="hljs-string">'a'</span>) <span class="hljs-keyword">as</span> write_file:
+  write_file.write(<span class="hljs-string">"\nSeconde line"</span>)
+
+<span class="hljs-comment"># Suppression d'un fichier</span>
+os.remove(<span class="hljs-string">'test.txt'</span>)
+os.unlink(<span class="hljs-string">'test.txt'</span>)
+
+file_path = Path(<span class="hljs-string">"folder1/file1.txt"</span>)
+file_path.unlink()
+
+<span class="hljs-comment"># Creer un fichier temporaire</span>
+<span class="hljs-keyword">with</span> tempfile.TemporaryFile(<span class="hljs-string">'w+'</span>) <span class="hljs-keyword">as</span> temp:
+  temp.write(<span class="hljs-string">"I'm a temp file!"</span>)
+  <span class="hljs-comment"># retourne au debut du fichier</span>
+  temp.seek(<span class="hljs-number">0</span>)
+  print(temp.read())
+</code></pre>
+<pre><code class="hljs css language-Python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> fileinput
+
+flist = [<span class="hljs-string">"file1.txt"</span>, <span class="hljs-string">"file2.txt"</span>, <span class="hljs-string">"file3.txt"</span>] 
+<span class="hljs-keyword">for</span> i, fname <span class="hljs-keyword">in</span> enumerate(flist):
+  <span class="hljs-keyword">with</span> open(fname, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> f:
+    f.write(<span class="hljs-string">f"Hi I'm file #<span class="hljs-subst">{i + <span class="hljs-number">1</span>}</span>"</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">basic_cat</span><span class="hljs-params">(filelist)</span>:</span>
+  lines = fileinput.input(filelist)
+  <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:
+    <span class="hljs-keyword">if</span> fileinput.isfirstline():
+      print(<span class="hljs-string">f"\nProcessing file: <span class="hljs-subst">{fileinput.filename()}</span>\n"</span>)
+    print(<span class="hljs-string">"-&gt;"</span>, line)
+
+basic_cat(flist)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="stat"></a><a href="#stat" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stat</h3>
+<pre><code class="hljs css language-Python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+<span class="hljs-keyword">import</span> time
+
+time.ctime(os.stat(<span class="hljs-string">"fichier.txt"</span>).st_mtime)
+
+<span class="hljs-keyword">for</span> obj <span class="hljs-keyword">in</span> os.scandir():
+  mod_time = obj.stat().st_mtime
+  print(<span class="hljs-string">f"File <span class="hljs-subst">{obj.name}</span> was last modified at <span class="hljs-subst">{time.ctime(mod_time)}</span>"</span>)
+
+<span class="hljs-comment"># Autre façon</span>
+dir_path = Path(<span class="hljs-string">"./"</span>)
+<span class="hljs-keyword">for</span> obj <span class="hljs-keyword">in</span> dir_path.iterdir():
+  mod_time = obj.stat().st_mtime
+  print(<span class="hljs-string">f"File <span class="hljs-subst">{obj.name}</span> was last modified at <span class="hljs-subst">{time.ctime(mod_time)}</span>"</span>)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="dossier"></a><a href="#dossier" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dossier</h2>
+<pre><code class="hljs css language-Python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> shutil
+<span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+
+<span class="hljs-comment"># Creer un dossier</span>
+os.mkdir(<span class="hljs-string">"folder1"</span>)
+
+<span class="hljs-comment"># Creer plusieur dossier sous-dossier</span>
+os.makedirs(<span class="hljs-string">"folder1/folder2"</span>)
+
+<span class="hljs-comment"># Suppression d'un dossier non vide</span>
+shutil.rmtree(<span class="hljs-string">"folder1"</span>)
+
+<span class="hljs-comment"># Creer un dossier temporaire</span>
+<span class="hljs-keyword">with</span> tempfile.TemporaryDirectory() <span class="hljs-keyword">as</span> temp_dir:
+  print(temp_dir)
+  print(os.path.exists(temp_dir))
+</code></pre>
+<pre><code class="hljs css language-Python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+
+<span class="hljs-comment"># Retourne une liste des fichiers et dossiers</span>
+os.listdir()
+
+<span class="hljs-comment"># Savoir si c'est un fichier</span>
+os.path.isfile(<span class="hljs-string">'file3.txt'</span>)
+
+<span class="hljs-comment"># affiche que les fichiers d'un repertoire</span>
+<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> os.scandir():
+  <span class="hljs-keyword">if</span> name.is_file():
+    print(name)
+
+<span class="hljs-comment"># affiche que les fichiers d'un repertoire ayant comme extension .txt</span>
+<span class="hljs-keyword">for</span> fname <span class="hljs-keyword">in</span> os.listdir():
+  <span class="hljs-keyword">if</span> fname.endswith(<span class="hljs-string">".txt"</span>):
+    print(name)
+<span class="hljs-comment">#ou</span>
+glob.glob(<span class="hljs-string">"*.txt"</span>)
+<span class="hljs-comment">#recursive</span>
+glob.glob(<span class="hljs-string">"**/*.txt"</span>, recursive=<span class="hljs-literal">True</span>)
+
+<span class="hljs-comment"># affiche que les fichiers d'un repertoire ayant le mot backup dans le nom</span>
+<span class="hljs-keyword">for</span> fname <span class="hljs-keyword">in</span> os.listdir():
+  <span class="hljs-keyword">if</span> fnmatch.fnmatch(fname, <span class="hljs-string">"*backup*"</span>):
+    print(fname)
+<span class="hljs-comment">#ou</span>
+glob.glob(<span class="hljs-string">"*backup*"</span>)
+<span class="hljs-comment">#recursive</span>
+glob.glob(<span class="hljs-string">"**/*backup*"</span>, recursive=<span class="hljs-literal">True</span>)
+
+<span class="hljs-comment"># Parcourir un arbre en entier</span>
+<span class="hljs-keyword">for</span> cur_dir, sub_dirs, files <span class="hljs-keyword">in</span> os.walk(<span class="hljs-string">"./"</span>):
+  print(<span class="hljs-string">f"Processing <span class="hljs-subst">{cur_dir}</span>"</span>)
+  print(<span class="hljs-string">"Sub-dirs"</span>, sub_dirs)
+  print(<span class="hljs-string">"Files"</span>, files)
+
+<span class="hljs-comment"># Parcourir un arbre en entier mode inversé</span>
+<span class="hljs-keyword">for</span> cur_dir, sub_dirs, files <span class="hljs-keyword">in</span> os.walk(<span class="hljs-string">"./"</span>, topdown=<span class="hljs-literal">False</span>):
+  print(<span class="hljs-string">f"Processing <span class="hljs-subst">{cur_dir}</span>"</span>)
+  print(<span class="hljs-string">"Sub-dirs"</span>, sub_dirs)
+  print(<span class="hljs-string">"Files"</span>, files)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="copier-et-deplacer"></a><a href="#copier-et-deplacer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copier et Deplacer</h2>
+<pre><code class="hljs css language-Python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> shutil
+
+<span class="hljs-comment"># Fichier</span>
+shutil.copy(<span class="hljs-string">'test.txt'</span>, <span class="hljs-string">'backup.txt'</span>)
+<span class="hljs-comment"># garder les même meta données sauf creation</span>
+shutil.copy2(<span class="hljs-string">'test.txt'</span>, <span class="hljs-string">'backup.txt'</span>)
+
+<span class="hljs-comment"># Dossier</span>
+shutil.copytree(<span class="hljs-string">'folder1'</span>, <span class="hljs-string">'folder2'</span>)
+os.stat(<span class="hljs-string">'backup.txt'</span>)
+
+<span class="hljs-comment"># Deplacer</span>
+<span class="hljs-comment"># deplacer un fichier dans le dossier folder</span>
+shutil.move(<span class="hljs-string">'test.txt'</span>, <span class="hljs-string">'folder'</span>)
+<span class="hljs-comment"># ou</span>
+os.rename(<span class="hljs-string">'test.txt'</span>, <span class="hljs-string">'folder/test.txt'</span>)
+
+<span class="hljs-comment"># Renomer</span>
+os.rename(<span class="hljs-string">'folder_1'</span>, <span class="hljs-string">'old_folder_1'</span>)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="compresser"></a><a href="#compresser" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compresser</h2>
+<pre><code class="hljs css language-Shell">import os
+import shutil
+import zipfile
+<span class="hljs-meta">
+#</span><span class="bash"> ziper</span>
+with zipfile.ZipFile('first.zip', 'w') as z:
+  z.write('file1.txt')
+<span class="hljs-meta">
+#</span><span class="bash"> lister les fichiers zipé</span>
+with zipfile.ZipFile('first.zip', 'r') as z:
+  print(z.filelist)
+<span class="hljs-meta">
+#</span><span class="bash"> extraire </span>
+with zipfile.ZipFile('first.zip', 'r') as z:
+<span class="hljs-meta">  #</span><span class="bash"> un fichier en particulier</span>
+  z.extract('file1.txt', 'extracted/file1.txt')
+<span class="hljs-meta">
+#</span><span class="bash"> compresser tout les fichiers</span>
+with zipfile.ZipFile('first.zip', 'w') as z:
+  for f in os.listdir():
+    z.write(f)
+<span class="hljs-meta">
+#</span><span class="bash"> extraire tout les fichiers</span>
+with zipfile.ZipFile('first.zip', 'r') as z:
+  z.extractall('extracted/')
+
+shutil.make_archive('mesfichiers.zip', 'zip')
+shutil.unpack_archive('mesfichiers.zip.zip', extract_dir="folder")
+shutil.make_archive('mesfichiers.zip.zip', 'tar')
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="decorateur"></a><a href="#decorateur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decorateur</h2>
+<pre><code class="hljs css language-Python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span>:</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">method</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'instance method called'</span>, self
+  
+<span class="hljs-meta">  @classmethod</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">classmethod</span><span class="hljs-params">(cls)</span>:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'class method called'</span>, cls
+  
+<span class="hljs-meta">  @staticmethod</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">staticmethod</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'static method called'</span>
+
+obj = MyClass()
+obj.method()
+obj.classmethod()
+obj.staticmethod()
+
+MyClass.method() // missing argment
+MyClass.classmethod()
+MyClass.staticmethod()
+</code></pre>
+<p><strong>@classmethod</strong> permet de définir des constructeur alternatif pour les classes</p>
+<p><strong>@staticmethod</strong> ne modifiera pas l'etat de la classe ou de l'instance, idéale pour des test, car elle est indépendante de la classe</p>
+<pre><code class="hljs css language-Python">class Pizza:
+  def __init__(self, ingredients):
+    self.ingredients = ingredients
+  
+  // this function is called when a method of class it's called 
+  def __repr__(self):
+    return f'Pizza({self.ingredients})'
+
+  @classmethod
+  def margherita(cls)
+    return cls(['cheese', 'tomatoes'])
+
+  @classmethod
+  def margherita(cls)
+    return cls(['cheese', 'tomatoes'])
+
+Pizza(['cheese'])
+Pizza.margherita()
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/me/docs/docDevMongoDB"><span class="arrow-prev">← </span><span class="function-name-prevnext">MongoDB</span></a><a class="docs-next button" href="/me/docs/docDevDevOps"><span>Gitlab CI/CD</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#module">Module</a></li><li><a href="#generateur">Generateur</a></li><li><a href="#fichier">Fichier</a><ul class="toc-headings"><li><a href="#stat">Stat</a></li></ul></li><li><a href="#dossier">Dossier</a></li><li><a href="#copier-et-deplacer">Copier et Deplacer</a></li><li><a href="#compresser">Compresser</a></li><li><a href="#decorateur">Decorateur</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/me/" class="nav-home"><img src="/me/img/favicon.ico" alt="Kevin Grondin" width="66" height="58"/></a><div></div><div></div><div></div></section></footer></div></body></html>

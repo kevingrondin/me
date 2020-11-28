@@ -63,6 +63,18 @@
 <p>la clée privé vous appartient, seul la clée public doits être sur les différents serveur</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="générés-les-clées-sous-linux"></a><a href="#générés-les-clées-sous-linux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Générés les clées sous Linux</h2>
+<h2><a class="anchor" aria-hidden="true" id="pré-requis-serveur"></a><a href="#pré-requis-serveur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pré-requis serveur</h2>
+<p>Installation</p>
+<pre><code class="hljs css language-Shell">sudo apt-get install openssh-server
+</code></pre>
+<pre><code class="hljs css language-Shell">sudo nano /etc/ssh/sshd_config
+</code></pre>
+<p>Vérifier que <strong>PasswordAuthentication</strong> est à <strong>yes</strong> car une fois la configuration terminé il faudra le mettre à no pour eviter connexion avec le mot de passe</p>
+<p>On redemarre le service à chaque modification</p>
+<pre><code class="hljs css language-Shell">sudo systemctl restart ssh
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="coté-client"></a><a href="#coté-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Coté client</h2>
+<p>Creations des clés</p>
 <pre><code class="hljs css language-Shell"><span class="hljs-meta">#</span><span class="bash"> Version secure</span>
 ssh-keygen -t rsa -b 4096 -C "email_address"
 <span class="hljs-meta">
@@ -72,6 +84,9 @@ ssh-keygen -t rsa -C "email_address"
 <p>Rendre accéssible ces fichiers générés par le systèmes</p>
 <pre><code class="hljs css language-Shell">sudo chmod 600 ~/.ssh/id_rsa
 sudo chmod 600 ~/.ssh/id_rsa.pub
+</code></pre>
+<p>envoyer la clée sur le serveur</p>
+<pre><code class="hljs css language-Shell">ssh-copy-id &lt;serveur&gt;
 </code></pre>
 <p>Github aussi peut fonctionner avec vos clée SSH, rajouter la clée Publique dans <strong>Settings</strong> &gt; <strong>SSH and GPG keys</strong></p>
 <pre><code class="hljs css language-Shell">ssh -T git@github.com
@@ -249,4 +264,4 @@ sudo pip install pssh
 
 pssh -h pssh-hosts -l root -A -i "df -hT"
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/me/docs/docLinuxConfigBase"><span class="arrow-prev">← </span><span>Un peu ligne de commande avant de commencer</span></a><a class="docs-next button" href="/me/docs/docLinuxMonitor"><span>Supervision linux</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#definition">Definition</a></li><li><a href="#générés-les-clées-sous-linux">Générés les clées sous Linux</a></li><li><a href="#générés-les-clées-sous-windows">Générés les clées sous Windows</a></li><li><a href="#mettre-la-clée-sur-le-rasp">Mettre la clée sur le rasp</a></li><li><a href="#autoriser-les-clées">Autoriser les clées</a></li><li><a href="#connexion-sans-mot-de-passe">Connexion sans mot de passe</a></li><li><a href="#wsl-sous-windows">WSL sous windows</a></li><li><a href="#astuce">Astuce</a></li><li><a href="#creer-groupe-et-utilisateur">Creer groupe et utilisateur</a></li><li><a href="#creer-dossier-avec-les-bon-droits">Creer dossier avec les bon droits</a></li><li><a href="#installer-samba">Installer Samba</a></li><li><a href="#configuration-de-base">Configuration de base</a></li><li><a href="#configuration-avancé">Configuration avancé</a></li><li><a href="#redemarrer-le-service">redemarrer le service</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/me/" class="nav-home"><img src="/me/img/favicon.ico" alt="Kevin Grondin" width="66" height="58"/></a><div></div><div></div><div></div></section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/me/docs/docLinuxConfigBase"><span class="arrow-prev">← </span><span>Un peu ligne de commande avant de commencer</span></a><a class="docs-next button" href="/me/docs/docLinuxMonitor"><span>Supervision linux</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#definition">Definition</a></li><li><a href="#générés-les-clées-sous-linux">Générés les clées sous Linux</a></li><li><a href="#pré-requis-serveur">Pré-requis serveur</a></li><li><a href="#coté-client">Coté client</a></li><li><a href="#générés-les-clées-sous-windows">Générés les clées sous Windows</a></li><li><a href="#mettre-la-clée-sur-le-rasp">Mettre la clée sur le rasp</a></li><li><a href="#autoriser-les-clées">Autoriser les clées</a></li><li><a href="#connexion-sans-mot-de-passe">Connexion sans mot de passe</a></li><li><a href="#wsl-sous-windows">WSL sous windows</a></li><li><a href="#astuce">Astuce</a></li><li><a href="#creer-groupe-et-utilisateur">Creer groupe et utilisateur</a></li><li><a href="#creer-dossier-avec-les-bon-droits">Creer dossier avec les bon droits</a></li><li><a href="#installer-samba">Installer Samba</a></li><li><a href="#configuration-de-base">Configuration de base</a></li><li><a href="#configuration-avancé">Configuration avancé</a></li><li><a href="#redemarrer-le-service">redemarrer le service</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/me/" class="nav-home"><img src="/me/img/favicon.ico" alt="Kevin Grondin" width="66" height="58"/></a><div></div><div></div><div></div></section></footer></div></body></html>

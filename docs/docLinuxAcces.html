@@ -141,11 +141,23 @@ Host &lt;ALIAS&gt;
    User     &lt;USER&gt;
    <span class="hljs-comment"># Tunnel SSH</span>
    <span class="hljs-comment"># ProxyCommand     ssh &lt;USER&gt;@&lt;SERVEUR&gt; -W %h:%p</span>
+   <span class="hljs-comment"># Petite subtilité sur windows pour le ligne PoxyCommand ( au -dessus ) ssh n'est pas reconnu il faut mettre ssh.exe</span>
 </code></pre>
 <p>Sous linux même chose mais, avec les autorisation systèmes</p>
 <pre><code class="hljs css language-Bash">nano ~/.ssh/config
 chmod 600 ~/.ssh/config
 chown <span class="hljs-variable">$USER</span> ~/.ssh/config
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="vscode-server"></a><a href="#vscode-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VSCODE Server</h2>
+<blockquote>
+<p>Avoir son environnement de dev sur un serveur</p>
+</blockquote>
+<pre><code class="hljs css language-Shell">sudo apt-get install libx11-dev libxkbfile-dev libsecret-1-dev fakeroot rpm
+</code></pre>
+<p><a href="https://github.com/cdr/code-server">code-server</a></p>
+<pre><code class="hljs css language-Shell">docker run -it -p 127.0.0.1:8080:8080 -v "${HOME}/.local/share/code-server:/home/coder/.local/share/code-server" -v "$PWD:/home/coder/project" codercom/code-server:v2
+<span class="hljs-meta">
+#</span><span class="bash">npm rebuild dans vscode pour recompiler si des problèmes persistes</span>
 </code></pre>
 <h1><a class="anchor" aria-hidden="true" id="mode-gui"></a><a href="#mode-gui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mode Gui</h1>
 <p>acces depuis windows et mac (rajouter .local pour mac) avec mstsc depuis windows</p>
@@ -180,6 +192,8 @@ sudo nano /etc/samba/smb.conf
 sudo service smbd restart
 </code></pre>
 <h1><a class="anchor" aria-hidden="true" id="samba-avancé"></a><a href="#samba-avancé" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Samba avancé</h1>
+<pre><code class="hljs css language-Shell">sudo apt install -y samba
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="creer-groupe-et-utilisateur"></a><a href="#creer-groupe-et-utilisateur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creer groupe et utilisateur</h2>
 <pre><code class="hljs css language-Shell">groupadd &lt;group&gt;
 <span class="hljs-meta">#</span><span class="bash"> ou</span>
@@ -249,8 +263,12 @@ comment = répertoire du &lt;groupe&gt;
 <pre><code class="hljs css language-Shell">testparm smb.conf
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="redemarrer-le-service"></a><a href="#redemarrer-le-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>redemarrer le service</h2>
+<blockquote>
+<p>Plusieur posibilité</p>
+</blockquote>
 <pre><code class="hljs css language-Shell">sudo pdbedit -a -u guest
 sudo service smbd restart
+sudo /etc/init.d/samba restart
 </code></pre>
 <h1><a class="anchor" aria-hidden="true" id="executer-une-ligne-sur-une-liste-de-serveur"></a><a href="#executer-une-ligne-sur-une-liste-de-serveur" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Executer une ligne sur une liste de serveur</h1>
 <p>On recupére l'espace disque sur tout les serveurs</p>
@@ -259,4 +277,4 @@ sudo pip install pssh
 
 pssh -h pssh-hosts -l root -A -i "df -hT"
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/me/docs/docLinuxConfigBase"><span class="arrow-prev">← </span><span>Un peu ligne de commande avant de commencer</span></a><a class="docs-next button" href="/me/docs/docLinuxMonitor"><span>Supervision linux</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#générés-les-clées-ssh">Générés les clées ssh</a><ul class="toc-headings"><li><a href="#pré-requis-serveur">Pré-requis serveur</a></li><li><a href="#coté-client">Coté client</a></li></ul></li><li><a href="#générés-les-clées-sous-windows">Générés les clées sous Windows</a></li><li><a href="#mettre-la-clée-sur-le-rasp">Mettre la clée sur le rasp</a></li><li><a href="#autoriser-les-clées">Autoriser les clées</a></li><li><a href="#connexion-sans-mot-de-passe">Connexion sans mot de passe</a></li><li><a href="#wsl-sous-windows">WSL sous windows</a></li><li><a href="#astuce">Astuce</a></li><li><a href="#creer-groupe-et-utilisateur">Creer groupe et utilisateur</a></li><li><a href="#creer-dossier-avec-les-bon-droits">Creer dossier avec les bon droits</a></li><li><a href="#installer-samba">Installer Samba</a></li><li><a href="#configuration-de-base">Configuration de base</a></li><li><a href="#configuration-avancé">Configuration avancé</a></li><li><a href="#redemarrer-le-service">redemarrer le service</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/me/" class="nav-home"><img src="/me/img/favicon.ico" alt="Kevin Grondin" width="66" height="58"/></a><div></div><div></div><div></div></section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/me/docs/docLinuxConfigBase"><span class="arrow-prev">← </span><span>Un peu ligne de commande avant de commencer</span></a><a class="docs-next button" href="/me/docs/docLinuxMonitor"><span>Supervision linux</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#générés-les-clées-ssh">Générés les clées ssh</a><ul class="toc-headings"><li><a href="#pré-requis-serveur">Pré-requis serveur</a></li><li><a href="#coté-client">Coté client</a></li></ul></li><li><a href="#générés-les-clées-sous-windows">Générés les clées sous Windows</a></li><li><a href="#mettre-la-clée-sur-le-rasp">Mettre la clée sur le rasp</a></li><li><a href="#autoriser-les-clées">Autoriser les clées</a></li><li><a href="#connexion-sans-mot-de-passe">Connexion sans mot de passe</a></li><li><a href="#wsl-sous-windows">WSL sous windows</a></li><li><a href="#astuce">Astuce</a></li><li><a href="#vscode-server">VSCODE Server</a></li><li><a href="#creer-groupe-et-utilisateur">Creer groupe et utilisateur</a></li><li><a href="#creer-dossier-avec-les-bon-droits">Creer dossier avec les bon droits</a></li><li><a href="#installer-samba">Installer Samba</a></li><li><a href="#configuration-de-base">Configuration de base</a></li><li><a href="#configuration-avancé">Configuration avancé</a></li><li><a href="#redemarrer-le-service">redemarrer le service</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/me/" class="nav-home"><img src="/me/img/favicon.ico" alt="Kevin Grondin" width="66" height="58"/></a><div></div><div></div><div></div></section></footer></div></body></html>
